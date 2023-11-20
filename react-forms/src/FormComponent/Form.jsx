@@ -42,7 +42,18 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e.target.notifications.checked)
+        if(name.length === 0) alert("name cannot be blank")
+        if(bio.length > 280) alert("bio cannot be over 280 chars")
+        if (email.length === 0) {
+            alert("email can not be blank")
+        } else if (!email.includes("@") && !email.includes(".")) {
+            alert("must be a valid email")
+        }
+        if (phoneNumber !== "") {
+            if (phoneNumber[3] !== '-' || phoneNumber[7] !== '-') alert("must be valid phone number xxx-xxx-xxxx")
+            if (phoneType.length === 0) alert("must select phone type")
+        }
+
     }
     return (
         <>
